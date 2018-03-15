@@ -21,7 +21,7 @@ public class GmailPage extends AbstractPage {
     @FindBy(xpath = "//div[@class='M j T b hc Zm  Ke']")
     private WebElement messageWriteButton;
     @FindBy(xpath = "//input[@class='on Cv']")
-    private WebElement reciever;
+    private WebElement receiver;
     @FindBy(xpath = "//input[@class='tn']")
     private WebElement subject;
     @FindBy(xpath = "//div[@role='textbox']")
@@ -59,11 +59,11 @@ public class GmailPage extends AbstractPage {
         click(mailIcon);
         return  this;
     }
-    public GmailPage writeMessage(String receiver ,String subject1, String content1){
+    public GmailPage writeMessage(String email ,String subjectOfMessage, String body){
         click(messageWriteButton);
-        sendKeysVisible(reciever,receiver);
-        sendKeysVisible(subject,subject1);
-        sendKeysVisible(content,content1);
+        sendKeysVisible(receiver,email);
+        sendKeysVisible(subject,subjectOfMessage);
+        sendKeysVisible(content,body);
         click(okButton);
         return  this;
     }
@@ -77,7 +77,7 @@ public class GmailPage extends AbstractPage {
         click(deleteButton);
         return this;
     }
-    public Boolean verifyDeletion(){
+    public Boolean verifyIfMessageIsDeleted(){
         return isElementDisplayed(movedToCash);
 
     }

@@ -15,10 +15,10 @@ public class GmailTest extends Driver {
                 enterEmail("testbilokura@gmail.com").
                 enterPassword("Kids12345a").
                 gotoMailPage().
-                writeMessage("bilokura@gmail.com","subj","cont").
+                writeMessage("bilokura@gmail.com","subject","content").
                 goToSentMessages().
                 deleteMessage();
-        Assert.assertTrue(gmailPage.verifyDeletion(),"Message is not deleted.");
+        Assert.assertTrue(gmailPage.verifyIfMessageIsDeleted(),"Message is not deleted.");
     }
     @AfterMethod()
     public void afterMethod() {
